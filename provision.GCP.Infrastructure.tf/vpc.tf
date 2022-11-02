@@ -1,5 +1,8 @@
 resource "google_compute_network" "vpc-network-gcp" {
-  project                 = "hussin-366113"
+  project                 = "hassan-ashraf"
   name                    = "vpc-network-gcp"
   auto_create_subnetworks = false
+  mtu                     = 1460
+
 }
+

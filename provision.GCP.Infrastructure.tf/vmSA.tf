@@ -4,7 +4,7 @@ resource "google_service_account" "service-account" {
 }
 
 resource "google_project_iam_member" "vm-sa" {
-  project = "hussin-366113"
+  project = "hassan-ashraf"
   role    ="roles/container.admin"
   member  = "serviceAccount:${google_service_account.service-account.email}"
 }

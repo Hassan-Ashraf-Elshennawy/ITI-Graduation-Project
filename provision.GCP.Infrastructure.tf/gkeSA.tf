@@ -1,16 +1,16 @@
 resource "google_service_account" "node-service-account" {
   account_id   = "service-account-node"
-  project     = "hussin-366113"
+  project     = "hassan-ashraf"
 }
 
 resource "google_project_iam_member" "containeradmin" {
-  project     = "hussin-366113"
+  project     = "hassan-ashraf"
   role    = "roles/container.admin"
   member  = "serviceAccount:${google_service_account.node-service-account.email}"
 }
 
 resource "google_project_iam_member" "storageadmin" {
-  project     = "hussin-366113"
+  project     = "hassan-ashraf"
   role    = "roles/storage.admin"
   member  = "serviceAccount:${google_service_account.node-service-account.email}"
 }

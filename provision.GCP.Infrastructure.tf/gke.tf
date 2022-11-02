@@ -1,6 +1,6 @@
 
 resource "google_container_cluster" "app-cluster" {
-  project  = "hussin-366113" 
+  project  = "hassan-ashraf" 
   name     = "gke-cluster"
   location = "us-central1-a"
 
@@ -16,10 +16,19 @@ resource "google_container_cluster" "app-cluster" {
 
   remove_default_node_pool = true
   initial_node_count = 1
+  network                  = google_compute_network.vpc-network-gcp.id
+  subnetwork               = google_compute_subnetwork.restricted-subnet.id
 
    depends_on = [
     google_compute_network.vpc-network-gcp
  ]
+
+  master_authorized_networks_config {
+    cidr_blocks {
+      cidr_block   = "10.0.0.0/24"
+      display_name = "managment-cidr-range"
+    }
+  }
 }
 
 resource "google_container_node_pool" "linux_pool" {
@@ -31,12 +40,25 @@ resource "google_container_node_pool" "linux_pool" {
   
   node_count = 1
   node_config {
-    image_type   = "COS_CONTAINERD"
+
+    preemptible  = true
+    machine_type = "e2-medium"
+    # Google recommends custom service accounts that have cloud-platform scope and permissions granted via IAM Roles.
     service_account = google_service_account.node-service-account.email
-
-
-  }
+    oauth_scopes = [
+      "https://www.googleapis.com/auth/cloud-platform"
+    ]
 }
+}
+
+
+
+
+
+  
+
+
+ 
 
 
 

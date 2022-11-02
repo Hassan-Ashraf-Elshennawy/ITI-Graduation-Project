@@ -15,15 +15,18 @@ resource "google_compute_instance" "private-vm" {
 
   boot_disk {
     initialize_params {
-      image = "ubuntu-os-cloud/ubuntu-2204-lts"
-      type = "pd-standard"
-      size = 10
+      image = "debian-cloud/debian-11"
     }
   }
 
 
   network_interface {
-    network =google_compute_network.vpc-network-gcp.name
-    subnetwork =google_compute_subnetwork.managment-subnet.name
+    network =google_compute_network.vpc-network-gcp.id
+    subnetwork =google_compute_subnetwork.managment-subnet.id
   }
 }
+
+
+
+
+
