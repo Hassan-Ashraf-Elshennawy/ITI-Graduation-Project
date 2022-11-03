@@ -19,3 +19,11 @@ spec:
           ports:
             - name: httpport
               containerPort: 8080
+          volumeMounts:
+            - name: sock
+              mountPath: /var/run/docker.sock
+      volumes:
+        - name: sock
+          hostPath:
+            path: /var/run/docker.sock
+       

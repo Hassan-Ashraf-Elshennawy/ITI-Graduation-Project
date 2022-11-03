@@ -1,0 +1,36 @@
+pipeline {
+    agent any
+        stages {
+            stage('repreation') {
+                steps {
+                // Get some code from a GitHub repository
+                     git branch: 'main',
+                    url: 'https://github.com/Hassan-Ashraf-Elshennawy/ITI-Graduation-Project.git'
+
+            }
+        }
+            stage('building) {
+                steps {
+                    withCredentials([usernamePassword(credentialsId: 'docke-rhub', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')])
+                {
+                    sh "docker login -u ${USERNAME} -p ${PASSWORD}"
+                    sh "cd node_app"
+                    sh "docker docker build . -t hassanashrafelshennawy/node-app"
+                    sh "docker push hassanashrafelshennawy/node-app"
+                    
+                }
+            }    
+        }
+            stage ('deployment'){
+                steps {
+                    sh """
+                    kubectl apply -f namespace.yml
+                    kubectl apply -f deployment.yml
+                    kubectl apply -f jenkins-service.yml.yml
+                    echo "CICD DONE"
+                """
+            }
+        
+        }
+    }
+}
