@@ -14,9 +14,8 @@ pipeline {
                   withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')])
                 {
                     sh "pwd"
-                    sh "docker docker build . -t app.node"
-                    sh "docker tag app_image hassanashrafelshennawy/app_node"
-                    sh "docker push hassanashrafelshennawy/app_node"
+                    sh "docker build  . -t hassanashrafelshennawy/app-node"
+                    sh "docker push hassanashrafelshennawy/app-node"
                     
                 }
             }    
