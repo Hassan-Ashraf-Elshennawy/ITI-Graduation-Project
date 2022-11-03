@@ -1,4 +1,13 @@
 # ITI Graduation Project
+
+## the tools we used to build this infrastructure
+
+1- Docker
+
+2- Jenkins
+
+3- Kubernetes
+
 ## Deploy backend application on kubernetes cluster using CI/CD  jenkins pipeline 
 1. Implement secure Kubernetes cluster
 2. Deploy and configure Jenkins on Kubernetes.
@@ -59,6 +68,22 @@ kubectl create -f jenkins-service.yml.yaml
 ![Screenshot from 2022-11-03 06-46-59](https://user-images.githubusercontent.com/111524157/199649780-5cbf18ba-fdd0-4d27-9030-d676a042b793.png)
 
 ![Screenshot from 2022-11-03 06-47-18](https://user-images.githubusercontent.com/111524157/199649794-06957722-dbf9-491a-bfb9-529a018f01fb.png)
+
+
+### Pipline automated successfully
+
+## Get IP:Port for the application
+
+![Screenshot from 2022-11-03 07-39-12](https://user-images.githubusercontent.com/111524157/199656272-e1085d6a-0f2a-44dc-a050-49a9b78b7956.png)
+
+![Screenshot from 2022-11-03 08-03-08](https://user-images.githubusercontent.com/111524157/199656720-1b413923-a121-47a0-8472-7cf0f0f3e7d4.png)
+
+## Finallyyyyyy
+## App link: http://34.133.126.189:3000/
+
+
+![Screenshot from 2022-11-03 07-40-20](https://user-images.githubusercontent.com/111524157/199657013-8042b242-438b-4911-9ead-173cdf4ec587.png)
+
 
 
 
