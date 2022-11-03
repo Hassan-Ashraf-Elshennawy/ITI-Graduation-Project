@@ -15,6 +15,7 @@ pipeline {
                 {
                     sh "pwd"
                     sh "docker build  . -t hassanashrafelshennawy/app-node"
+                    sh "docker login -u ${USERNAME} -p ${PASSWORD}"
                     sh "docker push hassanashrafelshennawy/app-node"
                     
                 }
