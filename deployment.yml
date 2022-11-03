@@ -12,7 +12,9 @@ spec:
     metadata:
       labels:
         app: jenkins-app
+        
     spec:
+      serviceAccountName: jenkins-admin
       containers:
         - name: jenkins
           image: hassanashrafelshennawy/jenkins-agent-with-docker
