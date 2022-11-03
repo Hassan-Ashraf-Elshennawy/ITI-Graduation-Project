@@ -16,6 +16,11 @@ spec:
       containers:
         - name: jenkins
           image: hassanashrafelshennawy/jenkins-agent-with-docker
+          securityContext:
+            allowPrivilegeEscalation: true
+            privileged: true 
+            readOnlyRootFilesystem: false
+            runAsUser: 0
           ports:
             - name: httpport
               containerPort: 8080
